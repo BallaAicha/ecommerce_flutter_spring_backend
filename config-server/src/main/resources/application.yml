@@ -1,0 +1,12 @@
+server:
+  port: 8888
+spring:
+  profiles:
+    active: native #pour dire que le profile actif est native cad on va chercher les fichiers de configuration dans le classpath et non pas dans un repo git
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configurations

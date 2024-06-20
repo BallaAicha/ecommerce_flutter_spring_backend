@@ -1,0 +1,6 @@
+spring:
+  config:
+    import: optional:configserver:http://localhost:8888 #pour dire que le service discovery-service va chercher ses propriétés de configuration dans le serveur de configuration config-server
+  application:
+    name: discovery-service
+

@@ -1,0 +1,11 @@
+eureka:
+  instance:
+    hostname: localhost #c'est le nom de l'instance du service qui va s'enregistrer dans le serveur eureka
+  client:
+    registerWithEureka: false #pour dire que le service ne doit pas s'enregistrer dans le serveur eureka
+    fetchRegistry: false #pour dire que le service ne doit pas récupérer les informations des autres services enregistrés dans le serveur eureka
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+server:
+  port: 8761

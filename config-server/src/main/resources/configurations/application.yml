@@ -1,0 +1,16 @@
+eureka:
+  instance:
+    hostname: localhost #c'est le nom de l'instance du service qui va s'enregistrer dans le serveur eureka
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka #c'est l'url du serveur eureka pour s'enregistrer
+name:
+  value: ousmane #c'est une propriété qui va être injectée dans le service customer-service pour dire que c'est le service customer-service qui est en cours d'exécution
+spring:
+  cloud:
+    config:
+      override-system-properties: false #pour dire que les propriétés définies dans les fichiers de configuration ne doivent pas écraser les propriétés système car les propriétés système sont prioritaires
+management:
+  tracing:
+    sampling:
+      probability: 1.0

@@ -1,0 +1,10 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://192.168.0.181:9098/realms/ecommerce
+  config:
+    import: optional:configserver:http://localhost:8888
+  application:
+    name: gateway-service

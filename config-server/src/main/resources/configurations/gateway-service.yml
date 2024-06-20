@@ -1,0 +1,30 @@
+server:
+  port: 8222
+  address: 0.0.0.0 #pour dire que le service doit écouter sur toutes les interfaces
+spring:
+  cloud:
+    gateway:
+      discovery: #pour activer la découverte des services
+        locator:
+          enabled: true #locator signifie localisateur il permet de localiser les services
+      routes:
+        - id: customer-service # quand on a une requete from customer-service qui represente le nom du service
+          uri: lb:http://CUSTOMER-SERVICE  #la ou on veut rediriger la requête
+          predicates: #les conditions pour rediriger la requête
+            - Path=/api/v1/customers/** #si le chemin de la requête commence par /api/v1/customers/**
+        - id: order-service
+          uri: lb:http://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/orders/**
+        - id: order-lines-service
+          uri: lb:http://ORDER-SERVICE
+          predicates:
+            - Path=/api/v1/order-lines/**
+        - id: product-service
+          uri: lb:http://PRODUCT-SERVICE
+          predicates:
+            - Path=/api/v1/products/**
+        - id: payment-service
+          uri: lb:http://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/v1/payments/**

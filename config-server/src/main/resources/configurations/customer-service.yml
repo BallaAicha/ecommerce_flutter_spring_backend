@@ -1,0 +1,11 @@
+server:
+  port: 8090
+spring:
+  data:
+    mongodb:
+      username: ousmane #nom d'utilisateur de la base de données
+      password: ousmane #mot de passe de la base de données
+      host: localhost #signifie que la base de données est sur la même machine que l'application
+      port: 27017 #port de la base de données
+      database: customer #nom de la base de données
+      authentication-database: admin #base de données d'authentification

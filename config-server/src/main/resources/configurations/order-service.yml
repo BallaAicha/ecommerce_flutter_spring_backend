@@ -1,0 +1,27 @@
+server:
+  port: 8070
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/order
+    username: ousmane
+    password: ousmane
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.type.mapping: orderConfirmation:org.etutoria.order.kafka.OrderConfirmation #pour mapper le type de l'objet orderConfirmation cad le message envoyé à kafka avec la classe OrderConfirmation , le consumer doit etre informé le consumer de notre topic kafka le type de l'objet envoyé orderConfirmation il vient de la classe OrderConfirmation
+
+#pour communiquer avec les autres microservices
+application:
+  config:
+    customer-url: http://localhost:8222/api/v1/customers #url du microservice customer
+    payment-url: http://localhost:8222/api/v1/payments
+    product-url: http://localhost:8222/api/v1/products #url du microservice product avec le port du microservice gateway

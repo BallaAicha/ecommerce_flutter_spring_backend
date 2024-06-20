@@ -1,0 +1,30 @@
+server:
+  port: 8050
+  address: 0.0.0.0
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver #pour la connexion à la base de données PostgreSQL on utilise le driver org.postgresql.Driver qui est le driver de PostgreSQL
+    url: jdbc:postgresql://localhost:5432/product #url de la base de données
+    username: ousmane #nom d'utilisateur de la base de données
+    password: ousmane #mot de passe de la base de données
+  jpa:
+    hibernate:  #pour la configuration de hibernate qui est un ORM (Object Relational Mapping) qui permet de faire le mapping entre les objets Java et les tables de la base de données
+      ddl-auto: validate #pour valider la structure de la base de données  donc ici on cree pas de table si elle n'existe pas on valide juste la structure de la base de données
+    database: postgresql #type de base de données PostgreSQL
+    database-platform: org.hibernate.dialect.PostgreSQLDialect #dialecte de la base de données
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+
+  flyway: #pour la configuration de flyway qui permet de gérer les migrations de la base de données cad les changements de la structure de la base de données
+    baseline-on-migrate: true #pour créer une ligne de base si elle n'existe pas cad si la base de données est vide on crée une ligne de base
+    enabled: true #pour activer flyway
+    baseline-description: "init" #description de la ligne de base
+    baseline-version: 0 #version de la ligne de base cad la première version
+    user: ${spring.datasource.username} #nom d'utilisateur de la base de données
+    password: ${spring.datasource.password} #mot de passe de la base de données
+    out-of-order: true
+
