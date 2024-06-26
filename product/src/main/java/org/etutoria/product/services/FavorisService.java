@@ -12,5 +12,6 @@ public interface FavorisService {
     FavorisResponse updateFavoris(Long id, FavorisRequest favorisRequest);
     void deleteFavoris(Long id);
     List<FavorisResponse> getAllFavoris();
+    List<FavorisResponse> getFavorisByCustomerId(String customerId);
 
 }

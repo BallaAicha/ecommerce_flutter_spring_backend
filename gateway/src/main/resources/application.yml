@@ -3,7 +3,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://192.168.0.181:9098/realms/ecommerce
+          issuer-uri: http://172.20.10.6:9098/realms/ecommerce
   config:
     import: optional:configserver:http://localhost:8888
   application:

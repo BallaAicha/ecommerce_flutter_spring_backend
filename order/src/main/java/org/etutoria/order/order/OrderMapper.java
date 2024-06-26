@@ -2,6 +2,8 @@ package org.etutoria.order.order;
 
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class OrderMapper {
 
@@ -12,7 +14,8 @@ public class OrderMapper {
     }
     return Order.builder()
         .id(request.id())
-        .reference(request.reference())
+        //.reference(request.reference())
+            .reference(UUID.randomUUID().toString())
         .paymentMethod(request.paymentMethod())
         .customerId(request.customerId())
         .build();

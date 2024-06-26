@@ -1,0 +1,2 @@
+ALTER TABLE favoris
+    ADD COLUMN IF NOT EXISTS customer_id BIGINT;

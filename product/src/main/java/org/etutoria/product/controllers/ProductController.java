@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.etutoria.product.dto.*;
 import org.etutoria.product.entities.Image;
+import org.etutoria.product.services.CartService;
 import org.etutoria.product.services.FavorisService;
 import org.etutoria.product.services.ImageService;
 import org.etutoria.product.services.ProductService;
@@ -28,6 +29,8 @@ public class ProductController {
     ImageService imageService;
     @Autowired
     private FavorisService favorisService;
+    @Autowired
+    private CartService cartService;
 
 
 
@@ -148,27 +151,24 @@ public class ProductController {
         FavorisResponse favorisResponse = favorisService.addFavoris(favorisRequest);
         return ResponseEntity.ok(favorisResponse);
     }
-    @GetMapping("/favoris/{id}")
-    public ResponseEntity<FavorisResponse> getFavoris(@PathVariable Long id) {
-        FavorisResponse favorisResponse = favorisService.getFavoris(id);
-        return ResponseEntity.ok(favorisResponse);
+
+    @GetMapping("/favoris/{customerId}")
+    public ResponseEntity<List<FavorisResponse>> getFavorisByCustomerId(@PathVariable String customerId) {
+        return ResponseEntity.ok(favorisService.getFavorisByCustomerId(customerId));
     }
 
-    @PutMapping("/favoris/{id}")
-    public ResponseEntity<FavorisResponse> updateFavoris(@PathVariable Long id, @RequestBody @Valid FavorisRequest favorisRequest) {
-        FavorisResponse favorisResponse = favorisService.updateFavoris(id, favorisRequest);
-        return ResponseEntity.ok(favorisResponse);
+    @PostMapping("/carts")
+    public ResponseEntity<CartResponse> addCart(
+            @RequestBody @Valid CartRequest cartRequest) {
+        CartResponse cartResponse = cartService.addCart(cartRequest);
+        return ResponseEntity.ok(cartResponse);
     }
 
-    @DeleteMapping("/favoris/{id}")
-    public ResponseEntity<Void> deleteFavoris(@PathVariable Long id) {
-        favorisService.deleteFavoris(id);
-        return ResponseEntity.ok().build();
+
+    @GetMapping("/carts/{customerId}")
+    public ResponseEntity<List<CartResponse>> getCartsByCustomerId(@PathVariable String customerId) {
+        return ResponseEntity.ok(cartService.getCartByCustomerId(customerId));
     }
 
-    @GetMapping("/favoris")
-    public ResponseEntity<List<FavorisResponse>> getAllFavoris() {
-        List<FavorisResponse> favorisResponses = favorisService.getAllFavoris();
-        return ResponseEntity.ok(favorisResponses);
-    }
+
 }

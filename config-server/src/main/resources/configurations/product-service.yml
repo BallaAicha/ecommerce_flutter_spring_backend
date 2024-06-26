@@ -27,4 +27,9 @@ spring:
     user: ${spring.datasource.username} #nom d'utilisateur de la base de données
     password: ${spring.datasource.password} #mot de passe de la base de données
     out-of-order: true
+application:
+  config:
+    customer-urls: http://localhost:8222/api/v1/customers #url du microservice customer
+    keycloak-token-url: http://172.20.10.6:9098/realms/ecommerce/protocol/openid-connect/token
+
 

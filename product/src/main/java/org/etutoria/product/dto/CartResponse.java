@@ -2,9 +2,10 @@ package org.etutoria.product.dto;
 
 import java.util.List;
 
-public record FavorisRequest(
+public record CartResponse(
         Long id,
-        List<ProductRequest> productList,
+        List<ProductResponse> productList,
         String customerId
+
 ) {
 }

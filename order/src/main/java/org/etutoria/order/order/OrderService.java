@@ -90,4 +90,16 @@ public class OrderService {
                 .map(this.mapper::fromOrder)
                 .orElseThrow(() -> new EntityNotFoundException(String.format("No order found with the provided ID: %d", id)));
     }
+
+
+    // Méthode pour trouver les commandes d'un client
+    public List<OrderResponse> findOrdersByCustomerId(String customerId) {
+        // Récupérer les commandes du client
+        List<Order> orders = this.repository.findByCustomerId(customerId);
+
+        // Mapper les entités Order en OrderResponse
+        return orders.stream()
+                .map(mapper::fromOrder)
+                .collect(Collectors.toList());
+    }
 }

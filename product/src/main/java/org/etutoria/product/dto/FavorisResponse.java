@@ -4,6 +4,7 @@ import java.util.List;
 
 public record FavorisResponse(
         Long id,
-        List<ProductResponse> productList
+        List<ProductResponse> productList,
+        String customerId
 ) {
 }

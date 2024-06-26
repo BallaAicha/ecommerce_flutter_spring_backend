@@ -2,6 +2,9 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/ V3__add_image.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V10_alter_customer_id_to_varchar.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V11_Create_cart_seq.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V12_Create_cart_seq.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V1__init_database.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V22__add_produit_id_to_image.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V2__insert_data.sql" dialect="PostgreSQL" />
@@ -10,7 +13,9 @@
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V6_delete_image_path.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V7__Add_created_at_to_product.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V8_favoris_product.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V9_add_customer_id_to_favoris.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V9_add_sequence.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/product/src/main/resources/db/migration/V_cart_product.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>

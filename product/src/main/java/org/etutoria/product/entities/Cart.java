@@ -11,27 +11,17 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-public class Favoris {
+public class Cart {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
-            name = "favoris_product",
-            joinColumns = @JoinColumn(name = "favoris_id"),
+            name = "cart_product",
+            joinColumns = @JoinColumn(name = "cart_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id")
     )
     private List<Product> productList;
-
     private String customerId;
+
+
 }
-
-
-
-
-
-
-
-
-
-
-

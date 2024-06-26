@@ -32,4 +32,12 @@ public class OrderController {
   ) {
     return ResponseEntity.ok(this.service.findById(orderId));
   }
+
+
+  @GetMapping("/customer/{customer-id}")
+  public ResponseEntity<List<OrderResponse>> findOrdersByCustomerId(
+          @PathVariable("customer-id") String customerId
+  ) {
+    return ResponseEntity.ok(this.service.findOrdersByCustomerId(customerId));
+  }
 }
